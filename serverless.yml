@@ -9,6 +9,7 @@ provider:
   name: aws
   runtime: nodejs14.x
   memorySize: 256
+  region: eu-west-1
   stage: ${opt:stage, 'dev'}
 
 functions:
