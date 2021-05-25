@@ -12,7 +12,7 @@ provider:
   region: eu-west-1
   stage: ${opt:stage, 'dev'}
   iamRoleStatements:
-    - ${file(iam/SendMailIAM.yml):SendMailIAM}
+    - ${file(iam/sendMailIAM.yml):SendMailIAM}
 
 functions:
   sendMail:
