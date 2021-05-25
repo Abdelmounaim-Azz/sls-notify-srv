@@ -1,8 +1,8 @@
-async function hello(event, context) {
+async function sendMail(event, context) {
   return {
     statusCode: 200,
     body: JSON.stringify({message: "Hello "}),
   };
 }
 
-export const handler = hello;
+export const handler = sendMail;
