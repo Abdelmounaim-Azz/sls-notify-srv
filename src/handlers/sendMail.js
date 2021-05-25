@@ -21,8 +21,8 @@ async function sendMail(event, context) {
   };
 
   try {
-    const result = await ses.sendEmail(params).promise();
-    return result;
+    const res = await ses.sendEmail(params).promise();
+    return res;
   } catch (error) {
     console.error(error);
   }
