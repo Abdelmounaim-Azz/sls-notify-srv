@@ -16,7 +16,9 @@ provider:
 resources:
   Resources:
     MAILSQS: ${file(resources/MAILSQS.yml):MAILSQS}
-
+  Outputs:
+    MAILSQSArn: ${file(resources/MAILSQS.yml):Outputs.MAILSQSArn}
+    MAILSQSUrl: ${file(resources/MAILSQS.yml):Outputs.MAILSQSUrl}
 functions:
   sendMail:
     handler: src/handlers/sendMail.handler
