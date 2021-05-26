@@ -13,11 +13,18 @@ provider:
   stage: ${opt:stage, 'dev'}
   iamRoleStatements:
     - ${file(iam/sendMailIAM.yml):SendMailIAM}
+resources:
+  Resources:
+    MAILSQS: ${file(resources/MAILSQS.yml):MAILSQS}
 
 functions:
   sendMail:
     handler: src/handlers/sendMail.handler
-    # events:
-    #   - http:
-    #       method: GET
-    #       path: /hello
+    events:
+      - sqs:
+          arn: ${self:custom.MAILSQS.arn}
+          batchSize: 1
+custom:
+  MAILSQS:
+    name: MAILSQS-${self:provider.stage}
+    arn: !GetAtt MAILSQS.Arn
