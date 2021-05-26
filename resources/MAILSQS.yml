@@ -2,3 +2,12 @@ MAILSQS:
   Type: AWS::SQS::Queue
   Properties:
     QueueName: ${self:custom.MAILSQS.name}
+Outputs:
+  MAILSQSArn:
+    Value: ${self:custom.MAILSQS.arn}
+    Export:
+      Name: ${self:custom.MAILSQS.name}-Arn
+  MAILSQSUrl:
+    Value: ${self:custom.MAILSQS.url}
+    Export:
+      Name: ${self:custom.MAILSQS.name}-Url

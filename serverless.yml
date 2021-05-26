@@ -28,3 +28,4 @@ custom:
   MAILSQS:
     name: MAILSQS-${self:provider.stage}
     arn: !GetAtt MAILSQS.Arn
+    url: !Ref MAILSQS
